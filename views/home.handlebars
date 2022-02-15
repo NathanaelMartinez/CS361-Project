@@ -1,0 +1,41 @@
+<div class="web-page">
+    <div class="home-intro">
+        <h1>Fantasiae Personae</h1>
+        <p class="welcome">
+            Welcome to Fantasiae Personae!
+        </p>
+        <p class="welcome">
+            When reading a book, we often keep a specific image in our mind of how characters should look. Sometimes, this image can almost be amorphous and difficult to imagine.
+        </p>
+        <p class="welcome">
+            This application seeks to help by providing you with images of the casts of actors starring in movies adapted from your chosen book and even allow you to create/view fancasts from other users!
+        </p>
+        <div>
+            <h3>Get Started</h3>
+            <h5>Search Book Adaptations by Title or Author</h5>
+            <div class="search-container">
+                <form action="/adaptations">
+                  <input type="text" placeholder="Search.." name="book_search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <h5>Or Create Your Own Fancast for Your Favorite Novel</h5>
+                <a href="/create-fancast"><button>Create</button></a>
+        </div>
+    </div>
+    <div class="member-login">
+        <h3>Member Sign In</h3>
+        <form method="POST" action="/auth/login/" id="home_login" onsubmit>
+            <fieldset>
+                <input type="hidden" name="next" value="/">
+                <label for="home_username">Username</label>
+                <input type="text" name="username" size="25" id="home_username" maxlength="30">
+                <label for="home_password">Password</label>
+                <input type="password" name="password" id="home_password" size="16" maxlength="30">
+                <br>
+                <a id="lost-password" href="/auth/reset-password/">Forgot password?</a>
+                <input type="submit" class="home-button" name="login" id="home_login_submit" value="Sign in">
+            </fieldset>
+        </form>
+    </div>
+</div>
