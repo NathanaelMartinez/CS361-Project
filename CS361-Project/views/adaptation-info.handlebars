@@ -1,0 +1,18 @@
+<div class="web-page">
+    <div id="book_title">
+         <img class="poster-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{adaptation.poster}}">
+        <div id="book_info">
+            <h1>{{adaptation.title}}</h1>
+            <h1>{{adaptation.rating}}</h1>
+        </div>
+    </div>
+    <div class="actors-display">
+        {{#each adaptation.cast}}
+            <div>
+                <h2>{{this.name}}<h2>
+                <h4>{{this.character}}</h4>
+                <img class="actor-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{this.profile_path}}">
+            </div>
+        {{/each}}
+    </div>
+</div>

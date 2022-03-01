@@ -1,0 +1,25 @@
+<div class="web-page">
+    <div class="user-register">
+        <div class="register-info">
+            <h2>Join Fantasiae Personae</h2>
+            <p>by joining Fantasiae Personae, you will be able to create your own facasts for your favorite novels or give ratings to fancasts by other users!</p>
+        </div>
+        <div class="register-form">
+            <h3>Member Sign Up</h3>
+            <form method="POST" action="https://cs361-auth-service.herokuapp.com/api/user/register/" id="register_user" onsubmit>
+                <fieldset>
+                    <input type="hidden" name="next" value="/">
+                    <label for="register_email">Email</label><br>
+                    <input type="text" name="email" size="25" id="register_email"><br>
+                    <label for="register_username">Username</label><br>
+                    <input type="text" name="username" size="25" id="register_username"><br>
+                    <label for="register_password">Password</label><br>
+                    <input type="password" name="password" id="register_password" size="16"><br>
+                    <input type="submit" class="register-button" name="register" id="user_register_submit" value="Sign up">
+                    <h5>Already have an account?</h5>
+                    <a id="login-link" href="/user-login">Log in here</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

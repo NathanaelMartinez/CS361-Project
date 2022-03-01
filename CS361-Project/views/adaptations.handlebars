@@ -1,0 +1,14 @@
+<div class="web-page">
+    <div id="book_title">
+        <img class="poster-img" src="{{book_cover}}">
+        <div id="book_info">
+            <h1>{{book_title}}</h1>
+            <h4>{{author}}</h4>
+        </div>
+    </div>
+    <div class="adaptations-display">
+        {{#each movies}}
+            <h2>{{this.title}}<br><a href="/adaptation-info/{{this.id}}"><img class="poster-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{this.poster}}"></a></h2>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,154 @@
+
+.web-page {
+  position: relative;
+}
+
+.error {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.info {
+  position: absolute;
+  left: 400px;
+  top: 15px;
+}
+
+button {
+  font: bold 11px;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #000000;
+  padding: 4px 6px 4px 6px;
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+
+#home_login_submit {
+  position: absolute;
+  width: 50px;
+  right: 0px;
+  bottom: 75px;
+}
+
+#user_register_submit {
+  position: absolute;
+  width: 60px;
+  bottom: 75px;
+}
+
+.home-intro {
+  position: absolute;
+  left: 330px;
+  margin-left: 70px;
+  margin-right: 700px;
+  margin-top: 30px;
+}
+
+.welcome {
+  position: relative;
+  padding-top: 10px;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+.member-login {
+  position: absolute;
+  right: 450px;
+  width: 200px;
+  top: 50px;
+  text-align: left;
+}
+
+.register-info {
+  position: absolute;
+  margin-top: 30px;
+  margin-right: 550px;
+  width: 300px;
+}
+
+.user-register {
+  position: relative;
+  left: 400px;
+  margin-left: 70px;
+  margin-right: 700px;
+  margin-top: 30px;
+}
+
+.register-form {
+  position: absolute;
+  width: 200px;
+  left: 350px;
+  top: 35px;
+}
+
+.adaptations-display {
+  position: absolute;
+  left: 250px;
+  top: 350px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.actors-display {
+  position: absolute;
+  left: 300px;
+  top: 350px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+fieldset {
+    margin: 0px 0px 15px 0px;
+    text-align: left;
+    padding: 10px;
+}
+
+fieldset input {
+    width: 180px;
+    margin-bottom: 15px;
+}
+
+input, select, textarea {
+    padding: 2px;
+    font-size: 10pt;
+}
+
+#book_title{
+  position: absolute;
+  left: 455px;
+  margin-left: 70px;
+  margin-top: 25px;
+}
+
+#book_info{
+  position: relative;
+  left: 245px;
+  bottom: 333px;
+}
+
+.poster-img{
+  width: 200px;
+  height: auto;
+}
+
+.actor-img{
+  width: 140px;
+  height: auto;
+}
