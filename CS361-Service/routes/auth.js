@@ -3,6 +3,7 @@ const User = require('../model/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const {registerValidation, loginValidation} = require('../validation');
+const verify = require('./verifyToken');
 
 
 
@@ -55,10 +56,22 @@ router.post('/login', async (req,res) => {
     if(!validPass) return res.status(400).send('Invalid password');
 
     // create json webtoken
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({username: user.username}, process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
+});
 
-    //res.send('Login successful');
+// AUTHENTICATE LOGGED IN USER
+
+router.post('/auth', async (req,res) => {
+    const token = req.header('auth-token');
+    if(!token) return res.status(401).send('Access Denied');
+
+    try {
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        res.send({user: verified});
+    } catch (err) {
+        res.status(400).send('Invalid Token');
+    }
 });
 
 
