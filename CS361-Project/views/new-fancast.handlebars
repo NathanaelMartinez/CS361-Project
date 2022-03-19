@@ -1,0 +1,46 @@
+<div class="web-page">
+    <div id="book_title">
+         <img class="poster-img" src="{{book_cover}}">
+        <div id="book_info">
+            <h1>Fancast for {{book_title}}</h1>
+            <h2>by {{user}}</h2>
+            <form action="/delete-fancast/{{user_id}}/{{fancast_id}}" method="POST">
+                <input class="submit" type="submit" value="DELETE">
+            </form>
+        </div>
+    </div>
+    <div class="character-add">
+         <form method="POST" action="/new-fancast" id="character-add-form" onsubmit>
+            <fieldset>
+                <label for="char_name">Character</label><br>
+                <input type="text" name="char_name" size="25" id="char_name"><br>
+                <label for="actor">Actor</label><br>
+                <input type="text" name="actor" size="25" id="actor"><br>
+                <input type="hidden" name="user_id" id="user_id" value="">
+                <input type="hidden" name="fancast_id" id="fancast_id" value="">
+                <input type="hidden" name="book_name" id="book_name" value="">
+                <input type="submit" class="add-character-submit" id="add-character-submit" value="Add Character">
+            </fieldset>
+        </form>
+    </div>
+    <div class="new-fancast-display">
+        {{#each fancast}}
+            <div>
+                <h2>{{this.char_name}}<h2>
+                <h4>{{this.actor}}</h4>
+                <form action="/delete-char/{{../user_id}}/{{../fancast_id}}/{{../book_title}}/{{this.char_id}}" method="POST">
+                    <input class="submit" type="submit" value="DELETE">
+                </form>
+                <img class="actor-img" src="{{this.actor_img}}">
+            </div>
+        {{/each}}
+    </div>
+</div>
+<script type="text/javascript">
+    const url = window.location.href.split("/");
+    console.log(url);
+    console.log(url[6]);
+    document.getElementById("user_id").value = url[4];
+    document.getElementById("fancast_id").value = url[5];
+    document.getElementById("book_name").value = url[6];
+</script>

@@ -1,0 +1,35 @@
+<div class="web-page">
+    <div id="book_title">
+         <img class="poster-img" src="{{book_cover}}">
+        <div id="book_info">
+            <h1>Fancast for {{fancast.[0].book_name}}</h1>
+            <h2>by {{fancast.[0].username}}</h2>
+            <h1>Fan Rating: {{rating}}</h1>
+            {{#unless voted}}
+                <form action="/rate-fancast/{{this.user_id}}/{{this.fancast_id}}" method="POST">
+                    <select class="rating_input" name="rating" id="rating" required>
+                        <option disabled selected value></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br><br>
+                    <input class="submit" type="submit" value="RATE">
+                </form>
+            {{/unless}}
+            {{#if modify_fancast}}
+                <a href='/new-fancast/{{this.user_id}}/{{this.fancast_id}}/{{fancast.[0].book_name}}'><button>EDIT</button></a>
+            {{/if}}
+        </div>
+    </div>
+    <div class="fancast-actors-display">
+        {{#each fancast}}
+            <div>
+                <h2>{{this.char_name}}<h2>
+                <h4>{{this.actor}}</h4>
+                <img class="actor-img" src="{{this.actor_img}}">
+            </div>
+        {{/each}}
+    </div>
+</div>
