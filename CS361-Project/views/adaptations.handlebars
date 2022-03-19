@@ -4,11 +4,17 @@
         <div id="book_info">
             <h1>{{book_title}}</h1>
             <h4>{{author}}</h4>
+            <h3>Synopsis goes here</h3>
         </div>
     </div>
     <div class="adaptations-display">
         {{#each movies}}
             <h2>{{this.title}}<br><a href="/adaptation-info/{{this.id}}"><img class="poster-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{this.poster}}"></a></h2>
+        {{/each}}
+    </div>
+    <div class="fancast-display">
+        {{#each fancasts}}
+            <h2>{{username}}<br><a href="/fancast-info/{{fancast_id}}"><img class="user-pfp" src="/static/Default_pfp.jpg"></a></h2>
         {{/each}}
     </div>
 </div>

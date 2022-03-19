@@ -3,6 +3,48 @@
   position: relative;
 }
 
+.topnav {
+  background-color: #333;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4974A5 ;
+  color: white;
+}
+
+#username{
+  position:absolute;
+  right: 150px;
+  text-decoration: none;
+  color: #f2f2f2;
+  text-align: center;
+  font-size: 17px;
+}
+
+#logout-button{
+  position:absolute;
+  right: 8px;
+}
+
 .error {
   text-align: center;
   margin-top: 100px;
@@ -103,6 +145,7 @@ button {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 80px;
 }
 
 .actors-display {
@@ -112,6 +155,36 @@ button {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.new-fancast-display {
+  position: absolute;
+  left: 500px;
+  top: 370px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 80px;
+}
+
+.fancast-actors-display {
+  position: absolute;
+  left: 300px;
+  top: 370px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 80px;
+}
+
+.fancast-display {
+  position: absolute;
+  left: 300px;
+  top: 800px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 80px;
 }
 
 fieldset {
@@ -151,4 +224,33 @@ input, select, textarea {
 .actor-img{
   width: 140px;
   height: auto;
+}
+
+.user-pfp{
+  width: 100px;
+  height: auto;
+}
+
+.fancasts-display {
+  position: absolute;
+  left: 300px;
+  top: 800px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.character-add {
+  position: absolute;
+  left: 200px;
+  top: 400px;
+}
+
+#character-add-form {
+  position: absolute;
+  width: 100px;
+}
+
+#add-character-submit {
+  width: 100px;
 }

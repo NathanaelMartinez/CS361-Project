@@ -3,15 +3,15 @@
          <img class="poster-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{adaptation.poster}}">
         <div id="book_info">
             <h1>{{adaptation.title}}</h1>
-            <h1>{{adaptation.rating}}</h1>
+            <a href="https://www.imdb.com/title/{{adaptation.imdb}}/ratings"><h1>{{adaptation.rating}}</h1></a>
         </div>
     </div>
     <div class="actors-display">
         {{#each adaptation.cast}}
             <div>
-                <h2>{{this.name}}<h2>
-                <h4>{{this.character}}</h4>
-                <img class="actor-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{this.profile_path}}">
+                <h2>{{this.character}}<h2>
+                <h4>{{this.name}}</h4>
+                <a href="https://www.themoviedb.org/person/{{this.id}}"><img class="actor-img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{this.profile_path}}"></a>
             </div>
         {{/each}}
     </div>

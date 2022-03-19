@@ -12,30 +12,38 @@
         </p>
         <div>
             <h3>Get Started</h3>
+            <h6>(warning: it may take a few seconds to load!)</h6>
             <h5>Search Book Adaptations by Title or Author</h5>
             <div class="search-container">
                 <form action="/adaptations">
-                  <input type="text" placeholder="Search.." name="book_search">
-                  <button type="submit"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search.." name="book_search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <h5>Or Create Your Own Fancast for Your Favorite Novel</h5>
-                <a href="/create-fancast"><button>Create</button></a>
+            <h4>Or Create Your Own Fancast for Your Favorite Novel</h4>
+            <h5>Search Your Favorite Book by its Title to Get Started</h5>
+            <div class="search-container">
+                <form method="POST" action="/create-fancast" id="new-fancast" onsubmit>
+                    <input type="text" placeholder="Search.." name="fancast_book">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="member-login">
-        <h3>Member Sign In</h3>
-        <form method="POST" action="https://cs361-auth-service.herokuapp.com/api/user/login/" id="home_login" onsubmit>
-            <fieldset>
-                <input type="hidden" name="next" value="/">
-                <label for="home_username">Username</label>
-                <input type="text" name="username" size="25" id="home_username" maxlength="30">
-                <label for="home_password">Password</label>
-                <input type="password" name="password" id="home_password" size="16" maxlength="30">
-                <input type="submit" class="home-button" name="login" id="home_login_submit" value="Sign in">
-                <h5>Don't have an account?</h5>
-                <a id="register-link" href="/new-user-register">Create a free account now</a>
-            </fieldset>
-        </form>
+        {{#unless username}}
+            <h3>Member Sign In</h3>
+            <form method="POST" action="/user-login" id="login_user" onsubmit>
+                <fieldset>
+                    <label for="login_username">Username</label><br>
+                    <input type="text" name="username" size="25" id="login_username"><br>
+                    <label for="login_password">Password</label><br>
+                    <input type="password" name="password" id="login_password" size="16"><br>
+                    <input type="submit" class="register-button" id="user_login_submit" value="Login">
+                    <h5>Don't have an account?</h5>
+                    <a id="register-link" href="/new-user-register">Create a free account now</a>
+                </fieldset>
+            </form>
+        {{/unless}}
     </div>
 </div>
