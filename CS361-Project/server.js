@@ -80,21 +80,28 @@ function getRating(res,mysql,context,id,complete){
         }
         context.rating = results[0].avg_rating;
         users = results[0].users;
-        context.already_voted = users.split(',');
+        if (users == null){
+            context.already_voted = [];
+        } else {
+            context.already_voted = users.split(',');
+        }
         console.log(context.already_voted);
         complete();
     });
 }
 
 function getFancast(res,mysql,context,id,complete){
-    var sql = 'SELECT Characters.char_id, Users.username, Fancasts.user_id, Fancasts.book_name, Characters.char_name, Characters.actor FROM Fancasts INNER JOIN Users ON Fancasts.user_id = Users.user_id INNER JOIN Characters ON Fancasts.fancast_id = Characters.fancast_id WHERE Fancasts.fancast_id = ?';
+    var sql = 'SELECT Characters.char_id, Users.username, Fancasts.user_id, Fancasts.book_name, Characters.char_name, Characters.actor FROM Fancasts LEFT JOIN Users ON Fancasts.user_id = Users.user_id LEFT JOIN Characters ON Fancasts.fancast_id = Characters.fancast_id WHERE Fancasts.fancast_id = ?';
     var inserts = [id];
+    console.log(inserts);
     mysql.pool.query(sql,inserts,function(err, results, fields){
         if(err){
             console.log(err);
+            res.send(err);
             return;
         }
         context.fancast = results;
+        console.log(results);
         context.creator_user_id = results[0].user_id;
         complete();
     });
@@ -374,7 +381,7 @@ app.get('/fancast-info/:id', async function(req,res){
     getRating(res, mysql, context, req.params.id, resultRating);
     async function resultRating(){
         if(loggedInUser){
-            if (context.already_voted.includes(String(context.user_id))){
+            if (context.already_voted != null && context.already_voted.includes(String(context.user_id))){
                 context.voted = true;
             }
         }
@@ -472,8 +479,11 @@ app.get('/new-fancast/:user_id/:fancast_id/:book_title', checkLogin, async funct
         context.fancast_id = req.params.fancast_id;
         getFancast(res, mysql, context, req.params.fancast_id, complete);
         async function complete(){
-            for (let i = 0; i < context.fancast.length; i++) {
-                context.fancast[i].actor_img = await getImage(context.fancast[i].actor);
+            console.log(context.fancast);
+            if (context.fancast[0].char_id != null){
+                for (let i = 0; i < context.fancast.length; i++) {
+                    context.fancast[i].actor_img = await getImage(context.fancast[i].actor);
+                }
             }
             res.render('new-fancast', context);
         }
